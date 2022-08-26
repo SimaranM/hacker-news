@@ -22,8 +22,36 @@ body {
 }
 .news-card a {
   font-size: 12px;
+   color: gray;
 }
-
+.news-card .fa {
+ margin-right: 10px;
+}
+.news-card .news-card_inner{
+  display: flex;
+}
+.news-card .news-card_text{
+display: flex;
+align-items: center;
+}
+.news-card .news-points{
+  position: relative;
+  padding: 5px;
+  margin: 0;
+  font-size: 11px;
+}
+.news-card .news-points:not(:last-child)::after {
+  position: absolute;
+  content: " ";
+  width: 1px;
+  height: 15px;
+  background-color: black;
+  margin-left: 5px;
+  top: 28%;
+}
+.loader{
+  text-align: center;
+}
 /* navbar---------------- */
 .navbar {
   display: flex;
@@ -31,8 +59,36 @@ body {
   padding: 1rem 3rem;
   background-color: rgb(255, 255, 255);
   align-items: center;
+  position: sticky;
+  top: 0;
+  /* box-shadow: 1px 5px 10px 1px #cacaca; */
+  border-bottom: 2px solid orangered;
+  z-index: 1;
 }
-
+/* .navbar {
+  padding-top: 25px;
+  padding-bottom: 25px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  background-color: #fff;
+}
+.navbar.sticky {
+  box-shadow: 0px 8px 20px -4px rgb(128 128 128);
+  -webkit-box-shadow: 0px 8px 20px -4px rgb(128 128 128);
+  -moz-box-shadow: 0px 8px 20px -4px rgb(128 128 128);
+  -ms-box-shadow: 0px 8px 20px -4px rgb(128 128 128);
+  -o-box-shadow: 0px 8px 20px -4px rgb(128 128 128);
+  padding-top: 15px;
+  padding-bottom: 15px;
+} */
 .logo {
   font-size: 25px;
   font-weight: 500;
@@ -42,21 +98,14 @@ body {
   display: flex;
   gap: 1rem;
 }
-
-.posts {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  align-items: center;
-  margin-top: 2rem;
-}
-
-.post {
-  width: 50%;
-  border: 1px solid rgba(0, 0, 0, 0.388);
-  border-top: 5px solid rgb(195, 93, 20);
-  padding: 2rem 2rem;
-}
+/* 
+.btn{
+  position: relative;
+  right: 5%;
+  background-color: rgb(255 102 0);
+  border:none ;
+  padding: 10px;
+} */
 /* --------menu--------- */
 img {
   width: 100px;
@@ -75,7 +124,7 @@ img {
   height: 15px;
   background-color: black;
   margin-left: 20px;
-  top: 30%;
+  top: 35%;
 }
 .icon input {
   width: 250px;
@@ -88,9 +137,47 @@ img {
 }
 .icon .fa {
   position: absolute;
-  right: 3%;
+  right: 4%;
+  width: 10px;
+  height: 10px;
+  color: rgb(159, 159, 159);
 }
 ::placeholder{
-  padding-left: 10px;
+  padding-left: 30px;
 }
-/* -------------------- */
+/* ---------pagination----------- */
+.pagination{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f7f7f7;
+  width: 100%;
+  padding: 20px 10px;
+  margin: 0;
+  list-style: none;
+}
+.pagination a{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 0 8px;
+  font-size: 20px;
+  background-color: #fff;
+  color: #1c1e29;
+  text-decoration: none;
+  padding: 10px 12px;
+}
+.pagination a:hover{
+  background-color: #ccc;
+  color: #fff;
+}
+.active-page{
+  background-color: #ccc;
+  color: #fff;
+}
