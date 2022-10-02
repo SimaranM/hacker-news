@@ -49,7 +49,6 @@ const NewsPage = () => {
 
     return (
         <>
-        
             <div className='navbar'>
                 <div className='logo'>
                     <img src={"https://www.digital-adoption.com/wp-content/uploads/2019/06/Hacker-News-logo.png"} />
@@ -68,31 +67,30 @@ const NewsPage = () => {
                     {/* search -----start */}
 
                     <form className='search-form' onSubmit={handleSubmit}>
-                        <input type='text' name='' id='' placeholder="Search hear.." value={searchInput} onChange={(event) => setSearchInput(event.target.value)} />
+                        <input type='text' name='' id='' placeholder='Search hear..' value={searchInput} onChange={(event) => setSearchInput(event.target.value)} />
                         {/* <button type='submit' className="btn"> */}
-                            <i class="fa fa-search" aria-hidden="true"></i>
+                        <i class='fa fa-search' aria-hidden='true'></i>
                     </form>
                     {/* search -----end */}
                 </div>
             </div>
-            <div className="container" >
-            <div className='news-container'>{isLoading ? <p className="loader">Loading....</p> : articles.map((article) => 
-            <Newscard article={article} key={article.objectID} />)}</div>
+            <div className='container'>
+                <div className='news-container'>{isLoading ? <p className='loader'>Loading....</p> : articles.map((article) => <Newscard article={article} key={article.objectID} />)}</div>
 
-            <ReactPaginate
-                nextLabel='>>'
-                previousLabel='<<'
-                breakLabel='...'
-                forcePage={currentPage}
-                pageCount={totalPages}
-                renderOnZeroPageCount={null}
-                onPageChange={handlePageChange}
-                className='pagination'
-                activeClassName='active-page'
-                previousClassName='previous-page'
-                nextClassName='next-page'
-            />
-         </div>
+                <ReactPaginate
+                    nextLabel='>>'
+                    previousLabel='<<'
+                    breakLabel='...'
+                    forcePage={currentPage}
+                    pageCount={totalPages}
+                    renderOnZeroPageCount={null}
+                    onPageChange={handlePageChange}
+                    className='pagination'
+                    activeClassName='active-page'
+                    previousClassName='previous-page'
+                    nextClassName='next-page'
+                />
+            </div>
         </>
     );
 };
